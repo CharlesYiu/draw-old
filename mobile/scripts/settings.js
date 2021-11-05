@@ -1,33 +1,5 @@
 function updateLineColorInputA() { document.getElementById(elementIds.lineColorSettingsInputA).value = lineColor.a * 100 }
 
-function toggleLineColorInputOutline() {
-    const lineColorInput = document.getElementById(elementIds.lineColorSettingsInput)
-    if (!lineColorInput.style.border) {
-        lineColorInput.style.border = "5px solid white"
-        if (navigator.vendor ===  "Apple Computer, Inc.") { lineColorInput.style.width = "91.5%" }
-        lineColorInput.style.marginTop = "9%"
-    } else {
-        lineColorInput.style.border = ""
-        if (navigator.vendor ===  "Apple Computer, Inc.") { lineColorInput.style.width = "96.5%" }
-        lineColorInput.style.marginTop = "10%"
-    }
-}
-function setLineColor() {
-    const lineColorInput = document.getElementById(elementIds.lineColorSettingsInput)
-
-    document.getElementById(elementIds.lineColorSettingsGrid).childNodes.forEach(child => { document.getElementById(child.id).style.outline = "" })
-    if (!lineColorInput.style.border) { toggleLineColorInputOutline() }
-
-    const hex = lineColorInput.value
-    lineColorInput.style.backgroundColor = hex
-    r = "0x" + hex[1] + hex[2]
-    g = "0x" + hex[3] + hex[4]
-    b = "0x" + hex[5] + hex[6]
-    lineColor.r = +r
-    lineColor.g = +g
-    lineColor.b = +b
-}
-
 function setLineColorA() {
     let newLineColorA = parseInt(document.getElementById(elementIds.lineColorSettingsInputA).value, 10) / 100
     if (newLineColorA > 1) { newLineColorA = 1 }
@@ -62,7 +34,6 @@ function generateLineColorGrid() {
         }
         singleColorGrid.onclick = () => {
             lineColorGrid.childNodes.forEach(child => { document.getElementById(child.id).style.outline = "" })
-            if (document.getElementById(elementIds.lineColorSettingsInput).style.border) { toggleLineColorInputOutline() }
             singleColorGrid.style.outline = `5px solid white`
             lineColor.r = parseInt(color.r, 10)
             lineColor.g = parseInt(color.g, 10)
@@ -223,10 +194,6 @@ function initializeSettings() {
     document.getElementById(elementIds.lineColorSettingsInputA).oninput = setLineColorA
     document.getElementById(elementIds.lineColorSettingsInputA).value = lineColor.a
     updateLineColorInputA()
-    document.getElementById(elementIds.lineColorSettingsInput).oninput = setLineColor
-    if (navigator.vendor ===  "Apple Computer, Inc.") {
-        document.getElementById(elementIds.lineColorSettingsInput).style.width = "96.5%"
-    }
     document.getElementById(elementIds.lineColorSettingsDiv).hidden = true
     document.getElementById(elementIds.showLineColorSettingsButton).onclick = () => {
         const lineColorSettingsDiv = document.getElementById(elementIds.lineColorSettingsDiv)
@@ -247,6 +214,12 @@ function initializeSettings() {
     document.getElementById(elementIds.addLineWidthSettingsButton).ontouchstart = addLineWidth
     document.getElementById(elementIds.minusLineWidthSettingsButton).ontouchstart = minusLineWidth
     document.getElementById(elementIds.clearCanvasButton).onclick = clearCanvasComfirm
+    document.getElementById(elementIds.advancedSettingsDiv).hidden = true
+    document.getElementById(elementIds.showAdvancedSettingsButton).onclick = () => {
+        const advancedSettingsDiv = document.getElementById(elementIds.advancedSettingsDiv)
+        advancedSettingsDiv.hidden = !advancedSettingsDiv.hidden
+        document.getElementById(elementIds.showAdvancedSettingsButton).textContent = advancedSettingsDiv.hidden ? "Show Advanced" : "Hide Advanced"
+    }
     const settingsElement = document.getElementById(elementIds.settingsDiv)
     document.getElementById(elementIds.showSettingsButton).onclick = () => {
         document.getElementById(elementIds.showSettingsButton).hidden = true
@@ -256,4 +229,5 @@ function initializeSettings() {
         settingsElement.hidden = true
         document.getElementById(elementIds.showSettingsButton).hidden = false
     }
+    document.getElementById(elementIds.showSettingsButton).hidden = true
 }

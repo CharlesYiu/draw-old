@@ -1,3 +1,4 @@
+let useCursor = true
 function updateCursor() {
     const cursorPosition = [window.event]
     if (cursorPosition[0] === undefined) { return }
@@ -25,7 +26,25 @@ function updateCursor() {
         if (cursorElement.style.left == leftStyle && cursorElement.style.top == topStyle) { cursorElement.hidden = true }
     }, 2500)
 }
+function toggleCursor() {
+    const cursorElement = document.getElementById(elementIds.cursor)
+    const advancedSettingsCursorButton = document.getElementById(elementIds.advancedSettingsCursorButton)
+    useCursor = !useCursor
+    console.log(useCursor)
+    if (!useCursor) {
+        cursorElement.hidden = true
+        document.getElementById(elementIds.shapesDiv).style.cursor = "default"
+        document.body.onmousemove = null
+        advancedSettingsCursorButton.textContent = "Use Custom Cursor"
+    } else {
+        cursorElement.hidden = false
+        document.getElementById(elementIds.shapesDiv).style.cursor = "none"
+        document.body.onmousemove = updateCursor
+        advancedSettingsCursorButton.textContent = "Use Default Cursor"
+    }
+}
 function initializeCursor() {
     document.body.onmousemove = updateCursor
     document.getElementById(elementIds.cursor).hidden = true
+    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = toggleCursor
 }

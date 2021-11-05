@@ -1,9 +1,5 @@
-// TODO Implement hide settings (like on the mobile version)
 // TODO Changable background color (both versions)
-// TODO Settings Dim when using tool (both versions)
 // TODO Make current keyboard shortcuts more intuitive
-// TODO Implement a 'no custom cursor' button
-// TODO Remove custom colors on mobile
 // TODO When Pressed esc the current tool stops being used
 
 function updateLineColorInputA() { document.getElementById(elementIds.lineColorSettingsInputA).value = lineColor.a * 100 }
@@ -227,7 +223,6 @@ function clearCanvas() {
 }
 
 function initializeSettings() {
-    document.getElementById("settings").hidden = false
     generateLineColorGrid()
     document.getElementById(elementIds.lineColorSettingsInputA).oninput = setLineColorA
     document.getElementById(elementIds.lineColorSettingsInputA).value = lineColor.a
@@ -257,5 +252,20 @@ function initializeSettings() {
             case 66: setTool(scribbleTool)
         }
     }
+    document.getElementById(elementIds.advancedSettingsDiv).hidden = true
+    document.getElementById(elementIds.showAdvancedSettingsButton).onclick = () => {
+        const advancedSettingsDiv = document.getElementById(elementIds.advancedSettingsDiv)
+        advancedSettingsDiv.hidden = !advancedSettingsDiv.hidden
+        document.getElementById(elementIds.showAdvancedSettingsButton).textContent = advancedSettingsDiv.hidden ? "Show Advanced" : "Hide Advanced"
+    }
+    const settingsElement = document.getElementById(elementIds.settingsDiv)
+    document.getElementById(elementIds.showSettingsButton).onclick = () => {
+        document.getElementById(elementIds.showSettingsButton).hidden = true
+        settingsElement.hidden = false
+    }
+    document.getElementById(elementIds.hideSettingsButton).onclick = () => {
+        settingsElement.hidden = true
+        document.getElementById(elementIds.showSettingsButton).hidden = false
+    }
+    document.getElementById(elementIds.showSettingsButton).hidden = true
 }
-document.getElementById("settings").hidden = true

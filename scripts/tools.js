@@ -18,6 +18,12 @@ function generateRandomId(characterCount) {
     return(id)
 }
 
+function toggleUsingTool() {
+    const overlayElement = document.getElementById(elementIds.overlayDiv)
+    usingTool = !usingTool
+    overlayElement.style.opacity = usingTool ? "50%" : "100%"
+    overlayElement.style.pointerEvents = usingTool ? "none" : "all"
+}
 function setTool(tool) { shapesElement.onmousedown = tool }
 
 function drawLine(shapeElement, createLine, drawnLine) {
@@ -50,7 +56,7 @@ function drawLine(shapeElement, createLine, drawnLine) {
 
 function lineTool() {
     if (usingTool) { return }
-    usingTool = true
+    toggleUsingTool()
 
     const lineElement = document.createElement("div")
     lineElement.id = generateRandomId(7)
@@ -63,14 +69,14 @@ function lineTool() {
     lineShape.lineWidth = thickness
 
     drawLine(lineShape, null ,() => {
-        usingTool = false
+        toggleUsingTool()
         actions.push({type: actionTypes.draw, element: lineElement, shape: lineShape})
     })
 }
 
 function squareTool() {
     if (usingTool) { return }
-    usingTool = true
+    toggleUsingTool()
 
     const squareElement = document.createElement("div")
     squareElement.id = generateRandomId(7)
@@ -98,13 +104,13 @@ function squareTool() {
     drawLine(squareShape, createSquare, context => {
         createSquare(context)
         actions.push({type: actionTypes.draw, element: squareElement, shape: squareShape})
-        usingTool = false
+        toggleUsingTool()
     })
 }
 
 function scribbleTool() {
     if (usingTool) { return }
-    usingTool = true
+    toggleUsingTool()
 
     const scribbleElement = document.createElement("div")
     scribbleElement.id = generateRandomId(7)
@@ -136,7 +142,7 @@ function scribbleTool() {
 
     drawLine(scribbleShape, createScribble, context => {
         actions.push({type: actionTypes.draw, element: scribbleElement, shape: scribbleShape})
-        usingTool = false
+        toggleUsingTool()
     })
 }
 

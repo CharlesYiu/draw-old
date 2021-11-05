@@ -1,3 +1,4 @@
+let useCursor = true
 function updateCursor() {
     const cursorPosition = window.event.touches
     if (cursorPosition[0] === undefined) { return }
@@ -31,8 +32,26 @@ function updateCursor() {
         if (cursorElement.style.left == leftStyle && cursorElement.style.top == topStyle) { cursorElement.hidden = true }
     }, 500)
 }
+function toggleCursor() {
+    const cursorElement = document.getElementById(elementIds.cursor)
+    const advancedSettingsCursorButton = document.getElementById(elementIds.advancedSettingsCursorButton)
+    useCursor = !useCursor
+    console.log(useCursor)
+    if (!useCursor) {
+        cursorElement.hidden = true
+        document.body.ontouchmove = null
+        document.body.ontouchstart = null
+        advancedSettingsCursorButton.textContent = "Enable Cursor"
+    } else {
+        cursorElement.hidden = false
+        document.body.ontouchmove = updateCursor
+        document.body.ontouchstart = updateCursor
+        advancedSettingsCursorButton.textContent = "Disable Cursor"
+    }
+}
 function initializeCursor() {
     document.body.ontouchmove = updateCursor
     document.body.ontouchstart = updateCursor
     document.getElementById(elementIds.cursor).hidden = true
+    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = toggleCursor
 }

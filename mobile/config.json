@@ -7,6 +7,8 @@
 
         "shapesDiv": "shapes",
 
+        "overlayDiv": "overlay",
+
         "showSettingsButton": "showsettings",
         "hideSettingsButton": "hidesettings",
         "settingsDiv": "settings",
@@ -16,7 +18,6 @@
         "lineColorSettingsHeader": "settings-linecolor-header",
         "lineColorSettingsInputA": "settings-linecolor-avalue",
         "lineColorSettingsGrid": "settings-linecolor-gridcolorpicker",
-        "lineColorSettingsInput": "settings-linecolor-value",
 
         "showLineWidthSettingsButton": "settings-showlinewidth",
         "lineWidthSettingsDiv": "settings-linewidth",
@@ -26,6 +27,7 @@
         "minusLineWidthSettingsButton": "settings-linewidth-minus",
 
         "toolsSettingsDiv": "settings-tools",
+        "toolsSettingsHeader": "settings-tools-header",
         "toolsSettingsScribbleToolButton": "settings-tools-scribbletool",
         "toolsSettingsLineToolButton": "settings-tools-linetool",
         "toolsSettingsSquareToolButton": "settings-tools-squaretool",
@@ -34,7 +36,11 @@
         "undoButton": "settings-undoredo-undo",
         "redoButton": "settings-undoredo-redo",
 
-        "clearCanvasButton": "settings-clear"
+        "clearCanvasButton": "settings-clear",
+
+        "showAdvancedSettingsButton": "settings-showadvanced",
+        "advancedSettingsDiv": "settings-advanced",
+        "advancedSettingsCursorButton": "settings-advanced-cursor"
     },
     "presetLineColors": [
         {"r": 255, "g": 87, "b": 87},
