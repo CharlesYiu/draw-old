@@ -63,7 +63,7 @@ body {
 #settings-linewidth-add, #settings-linewidth-minus { margin-top: -10px; }
 
 .doublebuttons { width: 47.5%; }
-#settings-tools-linetool, #settings-advanced-forcemobile{ margin-top: 2.5%; }
+#settings-tools-linetool, #settings-advanced-forcemobile, #settings-savereset-reset { margin-top: 2.5%; }
 
 .numberinput {
     width: 82.5%;

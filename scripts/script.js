@@ -1,4 +1,4 @@
-// TODO Save Settings and Canvas data
+// TODO Save Canvas data
 const homePath = window.location.hostname === "charlesyiu.github.io" ? "/draw" : ""
 const mobilePath = `${homePath}/mobile/`
 const computerPath = `${homePath}/`
