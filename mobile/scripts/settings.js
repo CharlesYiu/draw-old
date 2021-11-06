@@ -221,7 +221,7 @@ function resetSavedSettings() {
     localStorage.setItem("stroke-b", "0")
     localStorage.setItem("stroke-a", "1")
     localStorage.setItem("stroke-width", "10")
-    localStorage.setItem("use-cursor", "yes")
+    localStorage.setItem("use-cursor", "no")
     loadSavedSettings()
 }
 function initializeSettings() {
