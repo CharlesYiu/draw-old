@@ -11,6 +11,8 @@
         "showSettingsButton": "showsettings",
         "hideSettingsButton": "hidesettings",
         "settingsDiv": "settings",
+        "settingsSaveButton": "settings-savereset-save",
+        "settingsResetButton": "settings-savereset-reset",
 
         "lineColorSettingsDiv": "settings-linecolor",
         "lineColorSettingsHeader": "settings-linecolor-header",

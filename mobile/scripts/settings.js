@@ -189,6 +189,41 @@ function clearCanvas() {
     actions = []
 }
 
+function saveSettings() {
+    localStorage.setItem("stroke-r", lineColor.r.toString())
+    localStorage.setItem("stroke-g", lineColor.g.toString())
+    localStorage.setItem("stroke-b", lineColor.b.toString())
+    localStorage.setItem("stroke-a", lineColor.a.toString())
+    localStorage.setItem("stroke-width", thickness.toString())
+    localStorage.setItem("use-cursor", useCursor ? "yes" : "no")
+}
+function loadSavedSettings() {
+    const newLineColor = {
+        r: parseInt(localStorage.getItem("stroke-r"), 10),
+        g: parseInt(localStorage.getItem("stroke-g"), 10),
+        b: parseInt(localStorage.getItem("stroke-b"), 10),
+        a: parseFloat(localStorage.getItem("stroke-a"))
+    }
+    const newThickness = parseInt(localStorage.getItem("stroke-width"), 10)
+    const newUseCursor = localStorage.getItem("use-cursor") === "yes" ? true : (localStorage.getItem("use-cursor") === "no" ? false : useCursor)
+    lineColor.r = isNaN(newLineColor.r) ? 0 : newLineColor.r
+    lineColor.g = isNaN(newLineColor.g) ? 0 : newLineColor.g
+    lineColor.b = isNaN(newLineColor.b) ? 0 : newLineColor.b
+    lineColor.a = isNaN(newLineColor.a) ? 0 : newLineColor.a
+    thickness = isNaN(newThickness) ? 10 : newThickness
+    updateLineWidthInput()
+    useCursor = useCursor
+    toggleCursor()
+}
+function resetSavedSettings() {
+    localStorage.setItem("stroke-r", "0")
+    localStorage.setItem("stroke-g", "0")
+    localStorage.setItem("stroke-b", "0")
+    localStorage.setItem("stroke-a", "1")
+    localStorage.setItem("stroke-width", "10")
+    localStorage.setItem("use-cursor", "yes")
+    loadSavedSettings()
+}
 function initializeSettings() {
     generateLineColorGrid()
     document.getElementById(elementIds.lineColorSettingsInputA).oninput = setLineColorA
@@ -230,4 +265,7 @@ function initializeSettings() {
         document.getElementById(elementIds.showSettingsButton).hidden = false
     }
     document.getElementById(elementIds.showSettingsButton).hidden = true
+    document.getElementById(elementIds.settingsSaveButton).onclick = saveSettings
+    document.getElementById(elementIds.settingsResetButton).onclick = resetSavedSettings
+    loadSavedSettings()
 }

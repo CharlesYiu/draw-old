@@ -29,8 +29,6 @@ function updateCursor() {
 function toggleCursor() {
     const cursorElement = document.getElementById(elementIds.cursor)
     const advancedSettingsCursorButton = document.getElementById(elementIds.advancedSettingsCursorButton)
-    useCursor = !useCursor
-    console.log(useCursor)
     if (!useCursor) {
         cursorElement.hidden = true
         document.getElementById(elementIds.shapesDiv).style.cursor = "default"
@@ -46,5 +44,8 @@ function toggleCursor() {
 function initializeCursor() {
     document.body.onmousemove = updateCursor
     document.getElementById(elementIds.cursor).hidden = true
-    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = toggleCursor
+    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = () => {
+        useCursor = !useCursor
+        toggleCursor()
+    }
 }

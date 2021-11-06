@@ -30,9 +30,7 @@ function updateCursor() {
     }
 }
 function toggleCursor() {
-    const cursorElement = document.getElementById(elementIds.cursor)
     const advancedSettingsCursorButton = document.getElementById(elementIds.advancedSettingsCursorButton)
-    useCursor = !useCursor
     console.log(useCursor)
     if (!useCursor) {
         document.body.ontouchmove = null
@@ -48,5 +46,8 @@ function toggleCursor() {
 }
 function initializeCursor() {
     document.getElementById(elementIds.cursor).hidden = true
-    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = toggleCursor
+    document.getElementById(elementIds.advancedSettingsCursorButton).onclick = () => {
+        useCursor = !useCursor
+        toggleCursor()
+    }
 }
