@@ -31,7 +31,6 @@ function updateCursor() {
 }
 function toggleCursor() {
     const advancedSettingsCursorButton = document.getElementById(elementIds.advancedSettingsCursorButton)
-    console.log(useCursor)
     if (!useCursor) {
         document.body.ontouchmove = null
         document.body.ontouchstart = null

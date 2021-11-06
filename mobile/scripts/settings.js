@@ -212,7 +212,7 @@ function loadSavedSettings() {
     lineColor.a = isNaN(newLineColor.a) ? 0 : newLineColor.a
     thickness = isNaN(newThickness) ? 10 : newThickness
     updateLineWidthInput()
-    useCursor = useCursor
+    useCursor = newUseCursor
     toggleCursor()
 }
 function resetSavedSettings() {
