@@ -31,6 +31,8 @@ body {
     padding: 10px;
     margin: 10px;
     width: 147.5px;
+    overflow-y: scroll;
+    max-height: calc(100% - 40px);
 }
 
 .subsettings {
@@ -61,7 +63,7 @@ body {
 #settings-linewidth-add, #settings-linewidth-minus { margin-top: -10px; }
 
 .doublebuttons { width: 47.5%; }
-#settings-tools-linetool { margin-top: 2.5%; }
+#settings-tools-linetool, #settings-advanced-forcemobile{ margin-top: 2.5%; }
 
 .numberinput {
     width: 82.5%;

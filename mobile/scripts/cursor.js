@@ -1,4 +1,5 @@
-let useCursor = true
+let useCursor = false
+function stopCursor() { document.getElementById(elementIds.cursor).hidden = true }
 function updateCursor() {
     const cursorPosition = window.event.touches
     if (cursorPosition[0] === undefined) { return }
@@ -27,10 +28,6 @@ function updateCursor() {
         cursorThumbElement.style.left = `${(thickness - 80) / 2}px`
         cursorThumbElement.style.top = `${(thickness - 88) / 2}px`
     }
-
-    setTimeout(() => {
-        if (cursorElement.style.left == leftStyle && cursorElement.style.top == topStyle) { cursorElement.hidden = true }
-    }, 500)
 }
 function toggleCursor() {
     const cursorElement = document.getElementById(elementIds.cursor)
@@ -38,20 +35,18 @@ function toggleCursor() {
     useCursor = !useCursor
     console.log(useCursor)
     if (!useCursor) {
-        cursorElement.hidden = true
         document.body.ontouchmove = null
         document.body.ontouchstart = null
+        document.body.ontouchend = null
         advancedSettingsCursorButton.textContent = "Enable Cursor"
     } else {
-        cursorElement.hidden = false
         document.body.ontouchmove = updateCursor
         document.body.ontouchstart = updateCursor
+        document.body.ontouchend = stopCursor
         advancedSettingsCursorButton.textContent = "Disable Cursor"
     }
 }
 function initializeCursor() {
-    document.body.ontouchmove = updateCursor
-    document.body.ontouchstart = updateCursor
     document.getElementById(elementIds.cursor).hidden = true
     document.getElementById(elementIds.advancedSettingsCursorButton).onclick = toggleCursor
 }
