@@ -195,7 +195,7 @@ function saveSettings() {
     localStorage.setItem("stroke-b", lineColor.b.toString())
     localStorage.setItem("stroke-a", lineColor.a.toString())
     localStorage.setItem("stroke-width", thickness.toString())
-    localStorage.setItem("use-cursor", useCursor ? "yes" : "no")
+    localStorage.setItem("use-mobile-cursor", useCursor ? "yes" : "no")
 }
 function loadSavedSettings() {
     const newLineColor = {
@@ -205,7 +205,7 @@ function loadSavedSettings() {
         a: parseFloat(localStorage.getItem("stroke-a"))
     }
     const newThickness = parseInt(localStorage.getItem("stroke-width"), 10)
-    const newUseCursor = localStorage.getItem("use-cursor") === "yes" ? true : (localStorage.getItem("use-cursor") === "no" ? false : useCursor)
+    const newUseCursor = localStorage.getItem("use-mobile-cursor") === "yes" ? true : (localStorage.getItem("use-mobile-cursor") === "no" ? false : useCursor)
     lineColor.r = isNaN(newLineColor.r) ? 0 : newLineColor.r
     lineColor.g = isNaN(newLineColor.g) ? 0 : newLineColor.g
     lineColor.b = isNaN(newLineColor.b) ? 0 : newLineColor.b
@@ -221,7 +221,7 @@ function resetSavedSettings() {
     localStorage.setItem("stroke-b", "0")
     localStorage.setItem("stroke-a", "1")
     localStorage.setItem("stroke-width", "10")
-    localStorage.setItem("use-cursor", "no")
+    localStorage.setItem("use-mobile-cursor", "no")
     loadSavedSettings()
 }
 function initializeSettings() {

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "notes": [
+        "Added release notes",
+        "Made ability to save the settings",
+        "Added an option to force the use of the computer version",
+        "Disabled highlighting",
+        "Made the UI turn transparent when drawing",
+        "Made some sub-settings minimizable",
+        "Removed the advanced color picker",
+        "Made the cursor disabled by default",
+        "Added a larger circle when the cursor is too small to be seen"
+    ]
+}

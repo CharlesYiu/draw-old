@@ -1,0 +1,11 @@
+{
+    "version": 1,
+    "notes": [
+        "Added release notes",
+        "Made ability to save the settings",
+        "Added an option to force the use of the mobile version",
+        "Disabled highlighting",
+        "Made the UI turn transparent when drawing",
+        "Added an option to disable the custom cursor"
+    ]
+}

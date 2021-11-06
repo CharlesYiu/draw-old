@@ -13,7 +13,10 @@
         <h1>Loading resources..</h1>
     </div>
     <div id="view">
-        <div id="shapes">
+        <div id="shapes"></div>
+        <div id="cursor">
+            <div id="cursor-dot"></div>
+            <div id="cursor-thumb"></div>
         </div>
         <div id="overlay">
             <button id="showsettings" class="singlebutton">Show Settings</button>
@@ -52,10 +55,13 @@
                     <button id="settings-savereset-reset" class="singlebutton">Reset Settings</button>
                 </div>
             </div>
-        </div>
-        <div id="cursor">
-            <div id="cursor-dot"></div>
-            <div id="cursor-thumb"></div>
+            <div id="releasenotes">
+                <h1 id="releasenotes-header" class="subsettings-header">Release Notes:</h1>
+                <ul id="releasenotes-list">
+
+                </ul>
+                <button id="releasenotes-done" class="singlebutton">Done</button>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/charlesyiu/webmodules@v0.1/graphics/lines.js"></script>

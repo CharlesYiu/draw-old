@@ -1,6 +1,10 @@
 {
     "mobile": false,
     "elementIds": {
+        "loadingNotice": "loading-notice",
+
+        "view": "view",
+
         "cursor": "cursor",
         "cursorDot": "cursor-dot",
 
@@ -8,6 +12,11 @@
         
         "overlayDiv": "overlay",
         
+        "releaseNotes": "releasenotes",
+        "releaseNotesHeader": "releasenotes-header",
+        "releaseNotesList": "releasenotes-list",
+        "releaseNotesDoneButton": "releasenotes-done",
+
         "showSettingsButton": "showsettings",
         "hideSettingsButton": "hidesettings",
         "settingsDiv": "settings",
