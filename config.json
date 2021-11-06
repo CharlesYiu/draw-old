@@ -38,7 +38,8 @@
 
         "showAdvancedSettingsButton": "settings-showadvanced",
         "advancedSettingsDiv": "settings-advanced",
-        "advancedSettingsCursorButton": "settings-advanced-cursor"
+        "advancedSettingsCursorButton": "settings-advanced-cursor",
+        "advancedSettingsForceMobileButton": "settings-advanced-forcemobile"
     },
     "presetLineColors": [
         {"r": 255, "g": 87, "b": 87},
