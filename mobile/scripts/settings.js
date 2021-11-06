@@ -29,12 +29,7 @@ function generateLineColorGrid() {
         singleColorGrid.setAttribute("r", color.r.toString())
         singleColorGrid.setAttribute("g", color.g.toString())
         singleColorGrid.setAttribute("b", color.b.toString())
-        if (color.r === lineColor.r && color.g === lineColor.g && color.b === lineColor.b) {
-            singleColorGrid.style.outline = `5px solid white`
-        }
         singleColorGrid.onclick = () => {
-            lineColorGrid.childNodes.forEach(child => { document.getElementById(child.id).style.outline = "" })
-            singleColorGrid.style.outline = `5px solid white`
             lineColor.r = parseInt(color.r, 10)
             lineColor.g = parseInt(color.g, 10)
             lineColor.b = parseInt(color.b, 10)
