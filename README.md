@@ -1,5 +1,5 @@
 # draw
-A hobby project  
+A project  
   
 Rewrite in progress  
 Improvements including less lag and removing the config.json and lines.js files  
