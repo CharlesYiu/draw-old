@@ -7,72 +7,80 @@
     <title>Draw</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta http-equiv="refresh" content="0; url='https://draw.charr.cc'" />
 </head>
 <body>
-    <h1>Redirecting to the rewrite version</h1>
-    <a href="https://draw.charr.cc">Click to redirect<a>
-    <!--
-    <div id="loading-notice">
-        <h1 id="loading-notice-text">Loading..</h1>
+    <div id="important">
+        <h1>Redirecting to the rewrite version</h1>
+        <a href="https://draw.charr.cc">Click to redirect<a>
     </div>
-    <div id="view">
-        <div id="shapes"></div>
-        <div id="cursor">
-            <div id="cursor-dot"></div>
+    <script>
+        if (!window.location.endsWith("#") window.location = "https://draw.charr.cc"
+        else {
+            document.getElementById("app").hidden = false
+            document.getElementById("important").hidden = true
+        }
+    </script>
+    <div id="app" hidden>
+        <div id="loading-notice">
+            <h1 id="loading-notice-text">Loading..</h1>
         </div>
-        <div id="overlay">
-            <button id="showsettings" class="singlebutton">Show Settings</button>
-            <div id="settings">
-                <button id="hidesettings" class="singlebutton">Hide Settings</button>
-                <div id="settings-linecolor" class="subsettings">
-                    <p id="settings-linecolor-header" class="subsettings-header">Color:</p>
-                    <input type="range" id="settings-linecolor-avalue" class="sliderinput">
-                    <div id="settings-linecolor-gridcolorpicker" class="gridcolorpickerinput"></div>
-                    <input type="color" id="settings-linecolor-value" class="colorinput">
-                </div>
-                <div id="settings-linewidth" class="subsettings">
-                    <p id="settings-linewidth-header" class="subsettings-header">Width:</p>
-                    <input type="number" id="settings-linewidth-value" class="numberinput">
-                    <button id="settings-linewidth-add" class="doublebuttons">+</button>
-                    <button id="settings-linewidth-minus" class="doublebuttons">-</button>
-                </div>
-                <div id="settings-tools" class="subsettings">
-                    <p id="settings-tools-header" class="subsettings-header">Tool:</p>
-                    <button id="settings-tools-scribbletool" class="singlebutton">Scribble</button>
-                    <button id="settings-tools-linetool" class="doublebuttons">Line</button>
-                    <button id="settings-tools-squaretool" class="doublebuttons">Square</button>
-                </div>
-                <div id="settings-undoredo" class="subsettings">
-                    <button id="settings-undoredo-undo" class="doublebuttons">Undo</button>
-                    <button id="settings-undoredo-redo" class="doublebuttons">Redo</button>
-                </div>
-                <button id="settings-clear" class="singlebutton">Clear Canvas</button>
-                <button id="settings-showadvanced" class="singlebutton">Show Advanced</button>
-                <div id="settings-advanced" class="subsettings">
-                    <p id="settings-advanced-header" class="subsettings-header">Advanced:</p>
-                    <button id="settings-advanced-cursor" class="singlebutton">Use Default Cursor</button>
-                    <button id="settings-advanced-forcemobile" class="singlebutton">Force Mobile</button>
-                </div>
-                <div id="settings-savereset" class="subsettings">
-                    <button id="settings-savereset-save" class="singlebutton">Save Settings</button>
-                    <button id="settings-savereset-reset" class="singlebutton">Reset Settings</button>
-                </div>
+        <div id="view">
+            <div id="shapes"></div>
+            <div id="cursor">
+                <div id="cursor-dot"></div>
             </div>
-            <div id="releasenotes">
-                <h1 id="releasenotes-header" class="subsettings-header">Release Notes:</h1>
-                <ul id="releasenotes-list">
+            <div id="overlay">
+                <button id="showsettings" class="singlebutton">Show Settings</button>
+                <div id="settings">
+                    <button id="hidesettings" class="singlebutton">Hide Settings</button>
+                    <div id="settings-linecolor" class="subsettings">
+                        <p id="settings-linecolor-header" class="subsettings-header">Color:</p>
+                        <input type="range" id="settings-linecolor-avalue" class="sliderinput">
+                        <div id="settings-linecolor-gridcolorpicker" class="gridcolorpickerinput"></div>
+                        <input type="color" id="settings-linecolor-value" class="colorinput">
+                    </div>
+                    <div id="settings-linewidth" class="subsettings">
+                        <p id="settings-linewidth-header" class="subsettings-header">Width:</p>
+                        <input type="number" id="settings-linewidth-value" class="numberinput">
+                        <button id="settings-linewidth-add" class="doublebuttons">+</button>
+                        <button id="settings-linewidth-minus" class="doublebuttons">-</button>
+                    </div>
+                    <div id="settings-tools" class="subsettings">
+                        <p id="settings-tools-header" class="subsettings-header">Tool:</p>
+                        <button id="settings-tools-scribbletool" class="singlebutton">Scribble</button>
+                        <button id="settings-tools-linetool" class="doublebuttons">Line</button>
+                        <button id="settings-tools-squaretool" class="doublebuttons">Square</button>
+                    </div>
+                    <div id="settings-undoredo" class="subsettings">
+                        <button id="settings-undoredo-undo" class="doublebuttons">Undo</button>
+                        <button id="settings-undoredo-redo" class="doublebuttons">Redo</button>
+                    </div>
+                    <button id="settings-clear" class="singlebutton">Clear Canvas</button>
+                    <button id="settings-showadvanced" class="singlebutton">Show Advanced</button>
+                    <div id="settings-advanced" class="subsettings">
+                        <p id="settings-advanced-header" class="subsettings-header">Advanced:</p>
+                        <button id="settings-advanced-cursor" class="singlebutton">Use Default Cursor</button>
+                        <button id="settings-advanced-forcemobile" class="singlebutton">Force Mobile</button>
+                    </div>
+                    <div id="settings-savereset" class="subsettings">
+                        <button id="settings-savereset-save" class="singlebutton">Save Settings</button>
+                        <button id="settings-savereset-reset" class="singlebutton">Reset Settings</button>
+                    </div>
+                </div>
+                <div id="releasenotes">
+                    <h1 id="releasenotes-header" class="subsettings-header">Release Notes:</h1>
+                    <ul id="releasenotes-list">
 
-                </ul>
-                <button id="releasenotes-done" class="singlebutton">Done</button>
+                    </ul>
+                    <button id="releasenotes-done" class="singlebutton">Done</button>
+                </div>
             </div>
         </div>
+        <script src="scripts/lines.js"></script>
+        <script src="scripts/cursor.js"></script>
+        <script src="scripts/tools.js"></script>
+        <script src="scripts/settings.js"></script>
+        <script src="scripts/script.js"></script>
     </div>
-    <script src="scripts/lines.js"></script>
-    <script src="scripts/cursor.js"></script>
-    <script src="scripts/tools.js"></script>
-    <script src="scripts/settings.js"></script>
-    <script src="scripts/script.js"></script>
-    -->
 </body>
 </html>
