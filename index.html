@@ -14,7 +14,7 @@
         <a href="https://draw.charr.cc">Click to redirect<a>
     </div>
     <script>
-        if (!window.location.endsWith("#") window.location = "https://draw.charr.cc"
+        if (!window.location.toString().endsWith("#")) window.location = "https://draw.charr.cc"
         else {
             document.getElementById("app").hidden = false
             document.getElementById("important").hidden = true
