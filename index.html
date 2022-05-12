@@ -13,13 +13,6 @@
         <h1>Redirecting to the rewrite version</h1>
         <a href="https://draw.charr.cc">Click to redirect</a>
     </div>
-    <script>
-        if (!window.location.toString().endsWith("#")) window.location = "https://draw.charr.cc"
-        else {
-            document.getElementById("app").hidden = false
-            document.getElementById("important").hidden = true
-        }
-    </script>
     <div id="app" hidden>
         <div id="loading-notice">
             <h1 id="loading-notice-text">Loading..</h1>
@@ -82,5 +75,12 @@
         <script src="scripts/settings.js"></script>
         <script src="scripts/script.js"></script>
     </div>
+    <script>
+        if (!window.location.toString().endsWith("#")) window.location = "https://draw.charr.cc"
+        else {
+            document.getElementById("app").hidden = false
+            document.getElementById("important").hidden = true
+        }
+    </script>
 </body>
 </html>
